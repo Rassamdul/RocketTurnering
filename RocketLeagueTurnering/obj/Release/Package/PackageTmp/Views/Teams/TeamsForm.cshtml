@@ -1,0 +1,30 @@
+﻿@model RocketLeagueTurnering.ViewModels.TeamFormViewModel
+@{
+    ViewBag.Title = "TeamsForm";
+}
+
+<h2>Opret eller Ret Hold</h2>
+
+@using (Html.BeginForm("Save", "Teams")) { 
+    <div class="form-group">
+        @Html.Label("Hold Navn")
+        @Html.TextBoxFor(m => m.Team.TeamName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Medlem")
+        @Html.TextBoxFor(m => m.Team.Medlem1, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Medlem")
+        @Html.TextBoxFor(m => m.Team.Medlem2, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Medlem")
+        @Html.TextBoxFor(m => m.Team.Medlem3, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Team.Id)
+    <button type="submit" class="btn btn-primary"> Save</button>    
+}
+
+
+

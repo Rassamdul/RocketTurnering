@@ -1,0 +1,32 @@
+﻿@model List<RocketLeagueTurnering.Models.Team>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Info</h1>
+<p> Turneringens start tidspunkt finder vi ud af når CREW har fastsat deres turnerings tidspunkter så vi ikke render sammen</p>
+<p> Ang. Præmie tænker jeg vi bare kæmper om æren/For the luls, ellers kunne vi finde ud af en kioskpræmie for en pulje.</p>
+<br />
+<p> Kun jeg kan rette og slette holdende, så hvis i vil have lavet ændringer så skriv i Nanolaug tråden, eller hvis vi er ved lanet, så find den halvskaldede gut på plads 42</p>
+<hr />
+
+
+
+<h2> Tilmeldte hold</h2>
+<table class="table table-bordered">
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TeamName</td>
+            <td>@Html.ActionLink("Rediger", "Edit", new { id = x.Id }, new { onclick = "return prompt('Hva så?') == 'kianti';" })</td>
+            <td>@Html.ActionLink("Slet", "Delete", new { id = x.Id }, new { onclick = "return prompt('Hva så?') == 'kianti';" })</td>
+
+
+
+        </tr>
+    }
+</table>
+
+    
+<hr />
+<p>@Html.ActionLink("Opret Nyt Hold", "New", "Teams", null, new { @class = "btn btn-primary" })</p>
